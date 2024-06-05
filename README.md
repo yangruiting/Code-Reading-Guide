@@ -10,3 +10,14 @@ Hopefully, it will help you save time, reduce misunderstandings, and facilitate 
 2. for Experimenters and Developers
    
    Please check the corresponding `requirements.txt` and ensure that the necessary third-party Python libraries are installed. And refer to `README.md` file for the instructions on how to run the project. Basically, the names of the methods in the code are consistent with the names of the algorithms used. When developing, please refer to relevant materials to understand the principles of the algorithms.
+
+# File project_code_interpretation
+
+
+# File FAQ
+
+
+# File project_update_log
+
+
+# File result_log
