@@ -91,10 +91,51 @@ In PyCharm IDE, you can use **view-Tool Windows-Structure** to see the code's st
 
 ***Don't read the code from top to bottom！！！*** For mainstream programming languages ​​​​(such as C), it is crucial to ***get used to reading the code from the main function***. Although Python does not have a main function, `__name__ == "\__main__"` can be considered similar to it.
 
-Open `pretrain.py` in the project. 
+Open `pretrain.py`, logically, you should see the `main()` function first. 
 
+**1.** Before Start
 
+argparse is an argument and command parser. 
+```
+parser = argparse.ArgumentParser()  # Creating a parser
+parser.add_argument("--model_dim", default=1, type=int, required=False)  # Adding a parameter to the parser
+args = parser.parse_args()  # Parse the parameters and you can use them later
+```
+The logging module is used to record logs. When the program is running, you can output the running progress in the terminal and save it in the file. If you are not familiar with this module, you can check it out in [logging](https://docs.python.org/3/library/logging.html).
 
+**2.** Load
 
+We loaded the tokenizer and model using the following command.
+```
+tokenizer = DNATokenizer(args)
+model = GPT2LMHeadModel(args)
+```
+DNATokenizer() and GPT2LMHeadModel() are classes written in `tokenization.py` and `model.py` respectively. They are called through the `from...import...` command and instantiated here.
 
+Load the data and convert the sequence into token_ids using the following command.
+```
+train_dataset = load_and_cache_examples(args, tokenizer, evaluate=False)
+```
+Now, you can check out the implementation of the `load_and_cache_examples()` function from the code above.
+
+**3.** Train
+
+DataLoader encapsulates the custom dataset into a Tensor of the same batch size according to the batch size and whether to shuffle it, for subsequent training.
+```
+train_dataloader = DataLoader(train_dataset, sampler=train_sampler, batch_size=args.train_batch_size)
+```
+Use the following command to extract the data:
+```
+epoch_iterator = tqdm(train_dataloader, desc="Iteration", disable=args.local_rank not in [-1, 0])
+for step, batch in enumerate(epoch_iterator):
+```
+
+The data in each batch is input into the model, where att_mask consists of 0 and 1, and the att_mask value at the padding position is 0 and does not participate in learning.
+```
+inputs = batch[0]
+labels = batch[0]
+att_mask = batch[1]
+outputs = model(inputs, labels=labels, attention_mask=att_mask)
+```
+**4.** Eval
 
