@@ -87,7 +87,14 @@ For more information, please refer to: [scikitlearn 中文文档](https://scikit
 
 # How does the project work?
 
+In PyCharm IDE, you can use **view-Tool Windows-Structure** to see the code's structure. 
 
-1. 
+***Don't read the code from top to bottom！！！*** For mainstream programming languages ​​​​(such as C), it is crucial to ***get used to reading the code from the main function***. Although Python does not have a main function, `__name__ == "\__main__"` can be considered similar to it.
+
+Open `pretrain.py` in the project. 
+
+
+
+
 
 
