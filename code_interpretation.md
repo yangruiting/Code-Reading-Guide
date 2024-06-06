@@ -59,32 +59,35 @@ outputs = get_model_complexity_info(model, input_shape)
 
 Hugging Face's Tokenizers library provides a fast and efficient way to process natural language text (i.e., tokenization) for subsequent machine learning model training and reasoning. This library provides a variety of pre-trained tokenizers, such as BPE, Byte-Pair Encoding (Byte-Level BPE), WordPiece, etc., which are widely used tokenization methods in modern NLP models (such as BERT, GPT-2, RoBERTa, etc.).
 
-For more information, please refer to: [tokenizers](https://huggingface.co/docs/tokenizers/v0.13.4.rc2/en/index)
-
+For more information, please refer to: [Hugging-Face tokenizers](https://huggingface.co/docs/tokenizers/v0.13.4.rc2/en/index).
 
 **4. tqdm**
 
 ***why use it?*** 
 
+tqdm is a Python progress bar library. tqdm loads an iterable object and displays the loading progress of the iterable object in real time in the form of a progress bar.
+
 ***How do we use it?***
+
+```
+from tqdm import tqdm, trange
+train_iterator = trange(
+        epochs_trained, int(args.num_train_epochs), desc="Epoch", disable=args.local_rank not in [-1, 0]
+    )
+for _ in train_iterator:
+    epoch_iterator = tqdm(train_dataloader, desc="Iteration", disable=args.local_rank not in [-1, 0])
+```
+_train_dataloader_ is the loaded iterator, and _desc_ is the description text of the progress bar.
 
 **5. scikit_learn**
 
-***why use it?*** 
+Scikitlearn is an essential library for machine learning. It provides a variety of algorithms. We mainly use it to calculate metrics. 
 
-***How do we use it?***
+For more information, please refer to: [scikitlearn 中文文档](https://scikitlearn.com.cn/)
 
-
-
-
+# How does the project work?
 
 
-
-
-
-
-
-# 部分代码解读
 1. 
 
 
