@@ -1,10 +1,10 @@
-## FAQ——Don't keep doubts
+## FAQ——Frequently Asked Questions
 
 # ***If you have new questions, please describe them here:***
 
 ```
                  Your questions
-(Especially those that Baidu or AI cannot simply answer)
+
 ```
 
 # Already have answers
@@ -41,7 +41,11 @@ tensor[:,-1,:] # tensor slicing
 
 ***3. What are the units of parameter quantities?***
 
+Commonly used units are: 1K=1,000; 1M=1,000,000; 1B/1G=1,000,000,000.
 
+Conversion between parameter quantity (P) and display memory usage (D): 
+
+The default type of Tensor is single-precision floating point number fp32. So, D=4P/1024/1024.
 
 
 
