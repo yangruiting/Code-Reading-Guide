@@ -137,5 +137,13 @@ labels = batch[0]
 att_mask = batch[1]
 outputs = model(inputs, labels=labels, attention_mask=att_mask)
 ```
+After the loss is returned through the `model()`, a gradient update is performed using the optimizer.
+```
+loss.backward()
+optimizer.step()
+```
+During the training process, when a certain number of steps are set, get the results on the evaluation dataset and save the model.
+
 **4.** Eval
 
+After training is complete, you can get the model's results on the evaluation dataset.
