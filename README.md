@@ -13,7 +13,7 @@ Hopefully, it will help you save time, reduce misunderstandings, and facilitate 
 
 # Understanding the Source Code
 
-**1. project_code_interpretation**
+**1. code_interpretation**
 
 In this file, the code is interpreted, including the structure of the code, the role of each package, and the explanation of some functions.
 
