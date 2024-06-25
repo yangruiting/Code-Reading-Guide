@@ -49,6 +49,6 @@ Conversion between parameter quantity (P) and display memory usage (D):
 
 The default type of Tensor is single-precision floating point number fp32. So, D=4P/1024/1024.
 
-
-
+***4. Why not use einops.rearrange?***
+Packages _einops_ and _mmengine_ conflict.
 
