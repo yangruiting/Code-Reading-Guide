@@ -37,6 +37,8 @@ tensor.unsqueeze(dimx) # Dimension upscaling at the dimx dimension
 torch.cat([tensor a,tensor b],dimx) # Concatenate tensors at dimx dimension.
 tensor.repeat() # Duplicate at a dimension.
 tensor[:,-1,:] # tensor slicing
+torch.view_as_complex() # dim//2
+torch.view_as_real() # d*2
 ```
 
 ***3. What are the units of parameter quantities?***
